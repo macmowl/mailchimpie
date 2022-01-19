@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MailChimpController;
+use App\Http\Controllers\ImportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +24,5 @@ Route::prefix('subscriber')->group(function() {
     Route::post('/update/{email}', [MailChimpController::class, 'updateSubscriber'])->name('subscriber.update');
     Route::get('/delete/{email}', [MailChimpController::class, 'deleteSubscriber'])->name('subscriber.delete');
 });
+
+Route::post('import', [ImportController::class, 'importCSV']);

@@ -14,6 +14,8 @@ class MailChimpController extends Controller
     // --------------- MEMBER LIST -----------------
 
     public function manage(Request $request) {
+        // dd(env('DB_DATABASE'));
+        // dd(database_path('database.sqlite'));
         $total =  Newsletter::getMembers()['total_items'];
         $resultsByPage = 50;
         $numberOfPages = ($total-($total % $resultsByPage)) / $resultsByPage;
@@ -29,6 +31,7 @@ class MailChimpController extends Controller
             'offset' => $currentPage * $resultsByPage,
         ];
         $members = Newsletter::getMembers($string = '', $parameters)['members'];
+        // dd($members);
         return view('home', compact('members', 'numberOfPages', 'currentPage'));
     }
 
