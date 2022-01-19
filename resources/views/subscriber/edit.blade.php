@@ -8,12 +8,7 @@
         <h1 class="text-center text-lg font-bold text-gray-500">Update subscriber</h1>
         <div class="space-y-4 mt-6">
           
-          <div class="w-full flex flex-col">
-            <input type="email" name="email" value="{{ $member['email_address'] }}" placeholder="Email*" class="px-4 py-2 w-64 bg-gray-50 border border-gray-400 rounded-md" />
-            @error('email')
-                <span class="text-xs text-red-400 px-2">{{ $message }}</span>
-            @enderror
-          </div>
+          <input type="hidden" name="email" value="{{ $member['email_address'] }}" />
           <div class="w-full flex flex-col">
             <input type="text" name="fname" value="{{ $member['merge_fields']['FNAME'] }}" placeholder="First name" class="px-4 py-2 w-64 bg-gray-50 border border-gray-400 rounded-md" />
             @error('fname')
